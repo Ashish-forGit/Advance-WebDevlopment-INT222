@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let btn = document.createElement("button");
+    btn.textContent = "Click me";
+    let textField = document.createElement("input");
+    
+    textField.type = 'text'
+
+    btn.addEventListener("dblclick", () => {
+      console.log("Double Clicked");
+    });
+
+    textField.addEventListener("change", () => {
+      alert("Text field value changed");
+    });
+
+    document.body.appendChild(btn); // Append button to the body
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(textField);
+    document.body.appendChild(document.createElement("br"));
+
+    let mouseoverBtn = document.createElement("button");
+    mouseoverBtn.textContent = "Mouse Over";
+    mouseoverBtn.addEventListener("mouseover", () => {
+      alert("Mouse Over Event");
+    });
+    document.body.appendChild(mouseoverBtn);
+
+    // Create button for mouseout event
+    let mouseoutBtn = document.createElement("button");
+    mouseoutBtn.textContent = "Mouse Out";
+    mouseoutBtn.addEventListener("mouseout", () => {
+      alert("Mouse Out Event");
+    });
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(mouseoutBtn);
+
+    // Create button for keydown event
+    let keydownBtn = document.createElement("button");
+    keydownBtn.textContent = "Key Down";
+    document.addEventListener("keydown", () => {
+      alert("Key Down Event");
+    });
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(keydownBtn);
+
+    // Create button for load event
+    let loadBtn = document.createElement("button");
+    loadBtn.textContent = "Load";
+    window.addEventListener("load", () => {
+      alert("Load Event");
+    });
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(loadBtn);
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(document.createElement("br"));
+
+
+    // Button to remove event listeners
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove Event Listeners";
+    removeBtn.addEventListener("click", () => {
+      document.removeEventListener("keydown", keydownHandler);
+      window.removeEventListener("load", loadHandler);
+      alert("Event Listeners Removed");
+    });
+    document.body.appendChild(removeBtn);
+
+
+
+
+
+
+
+
+
+    
+  </script>
+</body>
+</html>

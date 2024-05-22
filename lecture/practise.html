@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p id = 'para'></p>
+
+
+    <script>
+        let input1 = document.createElement('input')
+        input1.type = 'number'
+        input1.value='enter a number';
+        document.body.appendChild(input1);
+        
+        document.body.appendChild(document.createElement('br'))
+
+        let input2 = document.createElement('input')
+        input2.type = 'number'
+        input2.textContent='enter 2 number';
+        document.body.appendChild(input2);
+        document.body.appendChild(document.createElement('br'))
+        document.body.appendChild(document.createElement('br'))
+
+        let p = document.getElementById("para")
+
+        let btn = document.createElement('button');
+        btn.textContent= 'calculate sum'
+        document.body.appendChild(btn)
+        btn.addEventListener('click',()=>{
+            let sum = parseInt(input1.value)+ parseInt(input2.value)
+            console.log(sum);
+            p.innerHTML= "Sum = " + sum; 
+
+
+        })
+        let btn2 = document.createElement('button');
+        btn2.textContent= 'calculate diff'
+        document.body.appendChild(btn2)
+        btn2.addEventListener('click',()=>{
+            let sum = parseInt(input1.value) - parseInt(input2.value)
+            console.log(sum);
+            p.innerHTML= "diff= " + sum; 
+
+
+        })
+
+        let btn3 = document.createElement('button');
+        btn3.textContent= 'calculate product'
+        document.body.appendChild(btn3)
+        btn3.addEventListener('click',()=>{
+            let sum = parseInt(input1.value) * parseInt(input2.value)
+            console.log(sum);
+            p.innerHTML= "Product = " + sum; 
+
+
+        })
+
+        let btn4 = document.createElement('button');
+        btn4.textContent= 'calculate division'
+        document.body.appendChild(btn4)
+        btn4.addEventListener('click',()=>{
+            let sum = parseInt(input1.value) / parseInt(input2.value)
+            console.log(sum);
+            p.innerHTML= "Sum = " + sum; 
+
+
+        })
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">Click me</button>
+    <p id="text"></p>
+    <script>
+        let count = 0
+        let btn = document.getElementById("btn")
+        let par = document.getElementById("text")
+        btn.addEventListener('dblclick',function(){
+            count++;
+            console.log(count);
+            par.innerHTML= count
+
+        }  );
+
+    </script>
+</body>
+</html>

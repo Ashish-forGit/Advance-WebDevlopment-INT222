@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+</head>
+<body>
+  <h2>Form Validation Example</h2>
+
+  <script>
+    // Create form element
+    let form = document.createElement("form");
+
+    // Create name input field
+    let nameLabel = document.createElement("label");
+    nameLabel.textContent = "Name:";
+    form.appendChild(nameLabel);
+    let nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.name = "name";
+    form.appendChild(nameInput);
+    form.appendChild(document.createElement("br"));
+
+    // Create email input field
+    let emailLabel = document.createElement("label");
+    emailLabel.textContent = "Email:";
+    form.appendChild(emailLabel);
+    let emailInput = document.createElement("input");
+    emailInput.type = "email";
+    emailInput.name = "email";
+    form.appendChild(emailInput);
+    form.appendChild(document.createElement("br"));
+
+    // Create password input field
+    let passwordLabel = document.createElement("label");
+    passwordLabel.textContent = "Passworrd:";
+    form.appendChild(passwordLabel);
+    let passwordInput = document.createElement("input");
+    passwordInput.type = "password";
+    passwordInput.name = "password";
+    form.appendChild(passwordInput);
+    form.appendChild(document.createElement("br"));
+
+
+
+    
+
+    // Create submit button
+    let submitBtn = document.createElement("input");
+    submitBtn.type = "submit";
+    submitBtn.value = "Submit";
+    form.appendChild(submitBtn);
+
+    // Append form to body
+    document.body.appendChild(form);
+
+    // Form submission event listener
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Validate form
+      let name = nameInput.value.trim();
+      let email = emailInput.value.trim();
+      let password = passwordInput.value;
+
+      if (name === "") {
+        alert("Please enter your name.");
+        nameInput.focus();
+        return false;
+      }
+
+      if (email === "") {
+        alert("Please enter your email.");
+        emailInput.focus();
+        return false;
+      } else if (!isValidEmail(email)) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
+        return false;
+      }
+
+      if (password === "") {
+        alert("Please enter your password.");
+        passwordInput.focus();
+        return false;
+      } else if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        passwordInput.focus();
+        return false;
+      }else if (!isValidPassword(password)) {
+        alert("Password must contain at least one special character, one capital letter, and one number.");
+        passwordInput.focus();
+        return false;
+      }
+
+
+
+
+
+
+
+
+      alert("Form submitted successfully!");
+      // You can submit the form to a server here if needed
+    });
+
+    // Email validation function
+    function isValidEmail(email) {
+     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function isValidPassword(password) {
+      // Regex to match at least one special character, one capital letter, and one number
+      let passwordRegex = /^(?=.*[!@#$%^&*()])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
+      return passwordRegex.test(password);
+    }
+
+
+
+
+
+
+  </script>
+</body>
+</html>
